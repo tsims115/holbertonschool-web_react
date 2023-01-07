@@ -37,5 +37,10 @@ module.exports = {
       },
     ],
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
+  optimization: {
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all',
+    },
 };

@@ -1,0 +1,28 @@
+/*
+Header styles
+*/
+
+.App-header {
+  display: flex;
+  border-bottom: #E0354B solid;
+}
+
+.App-header h1 {
+  display: flex;
+  color: #E0354B;
+  margin-top: 70px;
+}
+
+.App-header img {
+  height: 200px;
+  width: 200px
+}
+
+.App-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  border-top: #E0354B solid;
+}

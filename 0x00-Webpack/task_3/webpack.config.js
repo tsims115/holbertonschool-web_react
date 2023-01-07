@@ -1,5 +1,6 @@
 const path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -17,7 +18,8 @@ module.exports = {
     new HtmlWebpackPlugin({
         hash: true,
         filename: './dist/index.html' //relative to root of the application
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
   devServer: {
     static: path.join(__dirname, './public'),

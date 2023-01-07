@@ -45,4 +45,5 @@ module.exports = {
       // include all types of chunks
       chunks: 'all',
     },
+  }
 };

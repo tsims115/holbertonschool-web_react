@@ -1,5 +1,20 @@
-const $ = require( "jquery" )
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App/App';
+import reportWebVitals from './reportWebVitals';
+import Notifications from './Notifications/Notifications';
 
-$('body').append('<p>Holberton Dashboard</p>');
-$('body').append('<p>Dashboard data for the students</p>');
-$('body').append('<p>Copyright - Holberton School</p>');
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <div id='root-Notifications'>
+      <Notifications />
+    </div>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

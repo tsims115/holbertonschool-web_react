@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme';
 import Notifications from './Notifications.js';
+import React from 'react';
 const expect = require('chai').expect;
 
 describe('<Notifications />', () => {

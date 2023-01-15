@@ -2,11 +2,6 @@ import { shallow } from 'enzyme';
 import Notifications from './Notifications.js';
 import React from 'react';
 const expect = require('chai').expect;
-import '@testing-library/jest-dom';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-configure({ adapter: new Adapter() });
 
 
 const listNotifications = [

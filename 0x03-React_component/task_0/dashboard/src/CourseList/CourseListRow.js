@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
   if (isHeader) {
     if (!textSecondCell) {
-      return (<th colSpan={2}>{textFirstCell}</th>);
+      return (<tr><th colSpan={2}>{textFirstCell}</th></tr>);
     } else {
       return (
-        <React.Fragment>
+        <tr>
           <th>{textFirstCell}</th>
           <th>{textSecondCell}</th>
-        </React.Fragment>
+        </tr>
       );
     }
   } else {

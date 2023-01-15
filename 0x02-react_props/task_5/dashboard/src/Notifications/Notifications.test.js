@@ -71,6 +71,6 @@ describe('<Notifications /> when given a list of notifications', () => {
 const SComponent = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
 
   it("Displays div.Notifications when display drawer is true", () => {
-    expect(SComponent.find('NotificationItem').length).to.eql({display: "block"});
+    expect(SComponent.find('NotificationItem').length).to.eql(3);
   });
 });

@@ -1,6 +1,11 @@
 .Notifications {
-    border: purple solid;
+    border: thin dashed #E0354B;
     padding: 7px;
+    float: right;
+}
+
+.menuItem {
+      
 }
 
 [data-notification-type='default'] {

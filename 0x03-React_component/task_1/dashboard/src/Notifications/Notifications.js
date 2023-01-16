@@ -3,7 +3,6 @@ import './Notifications.css';
 import PropTypes from 'prop-types';
 import NotificationItem from './NotificationItem';
 import close_icon from '../assets/close-icon.png';
-import { getLatestNotification } from '../utils/utils.js'
 import NotificationShape from './NotificationItemShape';
 
 const listofnotifications = [

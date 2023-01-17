@@ -1,8 +1,6 @@
 import CourseList from "./CourseList";
 import { shallow } from 'enzyme';
 import React from 'react';
-const expect = require('chai').expect;
-
 
 
 describe('<CourseListRow />', () => {
@@ -11,10 +9,10 @@ describe('<CourseListRow />', () => {
   });
   it("renders 3 rows when given nothing", () => {
     const SCourseList = shallow(<CourseList />);
-    expect(SCourseList.find('CourseListRow').length).to.equal(3);
+    expect(SCourseList.find('CourseListRow').length).toEqual(3);
   });
   it("renders 3 rows when given a course", () => {
     const SCourseList = shallow(<CourseList listCourses={[{id: 2, name: 'React', credit:68}]} />);
-    expect(SCourseList.find('CourseListRow').length).to.equal(3);
+    expect(SCourseList.find('CourseListRow').length).toEqual(3);
   });
 });

@@ -34,7 +34,7 @@ const listNotifications = [
 ]
 
 const bodyStyles = StyleSheet.create({
-
+  body: {width: '100%'}
 })
 const footerStyles = StyleSheet.create({
   footer: {
@@ -72,7 +72,7 @@ class App extends React.Component {
       <Notifications listNotifications={listNotifications} />
       <div className="App">
         <Header />
-        <div className="App-body">
+        <div className={css(bodyStyles.body)}>
           {this.screen}
         </div>
         <div className={css(footerStyles.footer)}>

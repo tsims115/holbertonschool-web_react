@@ -3,7 +3,8 @@ import { StyleSheet, css } from 'aphrodite';
 
 const headerStyle = StyleSheet.create({
   login: {
-    width: '100%'
+    width: '100%',
+    margin: 'auto'
   }
 });
 

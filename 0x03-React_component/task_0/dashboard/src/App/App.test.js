@@ -1,9 +1,21 @@
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 import App from './App';
+import sinon from 'sinon';
+import { StyleSheetTestUtils } from 'aphrodite';
+jest.useFakeTimers();
+
+
+window.alert = sinon.spy()
 
 
 describe('<App />', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
   it("renders entire App without crashing", () => {
     shallow(<App />);
   });
@@ -35,5 +47,36 @@ describe('<App />', () => {
     const SApp = shallow(<App isLoggedIn={true} />);
     expect(SApp.find('Login').length).toEqual(0);
   });
-
 });
+
+describe('Keydown event listener works as planned', () => {
+  let keydown = {};
+  let logout = jest.fn();
+
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+    document.addEventListener = jest.fn((event, cb) => {
+          keydown[event] = cb;
+        });
+  })
+  afterEach(function() {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+    jest.restoreAllMocks();
+  });
+
+  it('alert is called with logging you out', () => {
+    window.alert = jest.fn();
+    shallow(<App logOut={logout} />);
+    keydown.keydown({ key: "h", ctrlKey: true });
+    expect(window.alert).toHaveBeenCalledWith("Logging you out");
+  });
+  
+  it('logOut function should be used', () => {
+    const logout = jest.fn();
+    window.alert = jest.fn();
+    shallow(<App logOut={logout} />);
+    keydown.keydown({ key: "h", ctrlKey: true });
+    expect(logout).toHaveBeenCalled();
+  })
+
+})

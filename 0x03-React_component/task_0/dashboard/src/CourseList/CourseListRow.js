@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const rowStyle = {
+  backgroundColor: '#f5f5f5ab'
+};
+const headerRowStyle = {
+  backgroundColor: '#f5f5f5ab'
+};
+
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
   if (isHeader) {
     if (!textSecondCell) {
-      return (<tr><th colSpan={2}>{textFirstCell}</th></tr>);
+      return (<tr style={headerRowStyle}><th colSpan={2}>{textFirstCell}</th></tr>);
     } else {
       return (
-        <tr>
+        <tr style={headerRowStyle}>
           <th>{textFirstCell}</th>
           <th>{textSecondCell}</th>
         </tr>
@@ -15,13 +22,14 @@ function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
     }
   } else {
     return (
-      <tr>
+      <tr style={rowStyle}>
         <td>{textFirstCell}</td>
         <td>{textSecondCell}</td>
       </tr>
     );
   }
 }
+
 
 CourseListRow.propTypes = {
   isHeader: PropTypes.bool,

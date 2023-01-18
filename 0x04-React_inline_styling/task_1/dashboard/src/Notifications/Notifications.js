@@ -7,7 +7,7 @@ import NotificationShape from './NotificationItemShape';
 import { StyleSheet, css } from 'aphrodite';
 
 const NotificationStyle = StyleSheet.create({
-  notification: {
+  notifications: {
     border: 'thin dashed #E0354B',
     padding: '7px',
     float: 'right',

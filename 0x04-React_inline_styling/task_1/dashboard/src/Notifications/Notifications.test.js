@@ -44,7 +44,7 @@ describe('<Notifications />', () => {
   });
   it("Notification renders menuItem div", () => {
     const SComponent = shallow(<Notifications />);
-    expect(SComponent.find('.menuItem').length).toEqual(1);
+    expect(SComponent.find('div').first().text()).toEqual('Your notifications');
   });
   it("Does not display div.Notifications when display drawer is false", () => {
     const SComponent = shallow(<Notifications />);

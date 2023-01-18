@@ -6,12 +6,16 @@ import close_icon from '../assets/close-icon.png';
 import NotificationShape from './NotificationItemShape';
 import { StyleSheet, css } from 'aphrodite';
 
-const NotificationStyle = StyleSheet.create({
+const NotificationsStyle = StyleSheet.create({
   notifications: {
     border: 'thin dashed #E0354B',
     padding: '7px',
     float: 'right',
-  }
+  },
+  menuItem: {
+    textAlign: 'right',
+    marginRight: '16px',
+  },
 });
 
 
@@ -52,7 +56,7 @@ class Notifications extends React.Component {
   render()  {
     if (this.props.displayDrawer) {
       this.display = (
-        <div className={css(NotificationStyle.notification)} >
+        <div className={css(NotificationsStyle.notifications)} >
           <p>Here is the list of notifications</p>
           <ul>
             {this.listNot}
@@ -72,7 +76,7 @@ class Notifications extends React.Component {
     }
     return (
     <React.Fragment>
-      <div className='menuItem'>Your notifications</div>
+      <div className={css(NotificationsStyle.menuItem)}>Your notifications</div>
       {this.display}
   </React.Fragment>
   )}

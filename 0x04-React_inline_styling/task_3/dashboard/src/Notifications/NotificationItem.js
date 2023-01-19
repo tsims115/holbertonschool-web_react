@@ -5,10 +5,22 @@ import { StyleSheet, css } from 'aphrodite';
 
 const NotificationItemStyle = StyleSheet.create({
   default: {
-    color: 'blue'
+    color: 'blue',
+    listStyle: 'none',
+    '@media (max-width: 900px)': {
+      width: '100%',
+      borderBottom: 'thin solid black',
+      padding: '10px 8px'
+    }
   },
   urgent: {
-    color: 'red'
+    color: 'red',
+    listStyle: 'none',
+    '@media (max-width: 900px)': {
+      width: '100%',
+      borderBottom: 'thin solid black',
+      padding: '10px 8px'
+    }
   }
 });
 
@@ -20,7 +32,7 @@ class NotificationItem extends React.Component {
   render() {
     return (
     <li 
-        {...(this.props.type === 'urgent' ? {className: css(NotificationItemStyle.urgent)} : {className: css(NotificationItemStyle.default)})}
+        className={css(this.props.type === 'urgent' ? NotificationItemStyle.urgent : NotificationItemStyle.default)}
         data-notification-type={this.props.type}
         dangerouslySetInnerHTML={this.props.html}
         onClick={() => {this.props.markAsRead(this.props.id)}}>

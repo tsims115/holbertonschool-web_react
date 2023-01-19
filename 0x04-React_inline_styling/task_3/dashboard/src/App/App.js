@@ -6,6 +6,8 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Login from '../Login/Login'
 import CourseList from '../CourseList/CourseList';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom'
+import BodySection from '../BodySection/BodySection'
 import { StyleSheet, css } from 'aphrodite';
 
 const listCourses = [
@@ -51,9 +53,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     if (this.props.isLoggedIn) {
-      this.screen = <CourseList listCourses={listCourses}/>;
+      this.screen = <BodySectionWithMarginBottom title="Course list"><CourseList listCourses={listCourses}/></BodySectionWithMarginBottom>;
     } else {
-      this.screen = <Login />;
+      this.screen = <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>;
     }
   }
 
@@ -74,6 +76,11 @@ class App extends React.Component {
         <Header />
         <div className={css(bodyStyles.body)}>
           {this.screen}
+        </div>
+        <div>
+          <BodySection title="News from the School">
+            <p>TULSA, Okla. — The Muscogee Creek National Council approved an $8.2 million dollar project agreement on Thursday with the City of Tulsa, the City of Jenks, and INGOG to create a new lake in the Arkansas River.</p>
+          </BodySection>
         </div>
         <div className={css(footerStyles.footer)}>
           <Footer />

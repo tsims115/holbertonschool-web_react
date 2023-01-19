@@ -10,6 +10,14 @@ const NotificationsStyle = StyleSheet.create({
     border: 'thin dashed #E0354B',
     padding: '7px',
     float: 'right',
+    
+    '@media (max-width: 900px)': {
+      position: 'absolute',
+      width: '98%',
+      height: '100%',
+      backgroundColor: 'white',
+      fontSize: '20px'
+    }
   },
   menuItem: {
     textAlign: 'right',
@@ -87,7 +95,7 @@ Notifications.propTypes = {
 };
 
 Notifications.defaultProps = {
-  displayDrawer: false,
+  displayDrawer: true,
   listNotifications: []
 };
 

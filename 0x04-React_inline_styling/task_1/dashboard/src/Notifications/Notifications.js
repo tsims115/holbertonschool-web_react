@@ -1,5 +1,4 @@
 import React from 'react';
-import './Notifications.css';
 import PropTypes from 'prop-types';
 import NotificationItem from './NotificationItem';
 import close_icon from '../assets/close-icon.png';

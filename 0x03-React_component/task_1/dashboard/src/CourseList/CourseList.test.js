@@ -2,10 +2,17 @@ import CourseList from "./CourseList";
 import { shallow } from 'enzyme';
 import React from 'react';
 const expect = require('chai').expect;
+import { StyleSheetTestUtils } from "aphrodite";
 
 
 
 describe('<CourseListRow />', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
   it("renders CourseListRow without crashing", () => {
     shallow(<CourseList />);
   });

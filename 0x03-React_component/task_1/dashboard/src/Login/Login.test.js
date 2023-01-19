@@ -2,8 +2,15 @@ import Login from './Login'
 import { shallow } from 'enzyme';
 import React from 'react';
 const expect = require('chai').expect;
+import { StyleSheetTestUtils } from 'aphrodite';
 
 describe('<Login />', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
   it("renders Login without crashing", () => {
     shallow(<Login />);
   });

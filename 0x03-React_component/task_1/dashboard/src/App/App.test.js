@@ -1,15 +1,21 @@
 import { shallow, mount } from 'enzyme';
-import 'jsdom-global/register';
 import React from 'react';
 import App from './App';
 import sinon from 'sinon';
+import { StyleSheetTestUtils } from 'aphrodite';
+jest.useFakeTimers();
 
-window.alert = sinon.spy(
 
-)
+window.alert = sinon.spy()
 
 
 describe('<App />', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
   it("renders entire App without crashing", () => {
     shallow(<App />);
   });
@@ -48,12 +54,14 @@ describe('Keydown event listener works as planned', () => {
   let logout = jest.fn();
 
   beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
     document.addEventListener = jest.fn((event, cb) => {
           keydown[event] = cb;
         });
   })
   afterEach(function() {
-      jest.restoreAllMocks();
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+    jest.restoreAllMocks();
   });
 
   it('alert is called with logging you out', () => {

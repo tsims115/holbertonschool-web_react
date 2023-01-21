@@ -102,7 +102,7 @@ class Notifications extends React.Component {
           <div style={{textAlign: 'right'}}>
             <button 
               aria-label='Close' 
-              onClick={this.props.handleHideDrawer()}
+              onClick={ this.props.handleHideDrawer() }
               style={{marginLeft: 'auto', marginBottom: ''}}>
               <img src={close_icon} alt='close' style={{
                 height: '8px',

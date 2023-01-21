@@ -102,11 +102,7 @@ class Notifications extends React.Component {
           <div style={{textAlign: 'right'}}>
             <button 
               aria-label='Close' 
-              onClick={() => {
-                clickLog();
-                this.props.handleHideDrawer();
-                }
-              }
+              onClick={this.props.handleHideDrawer()}
               style={{marginLeft: 'auto', marginBottom: ''}}>
               <img src={close_icon} alt='close' style={{
                 height: '8px',
@@ -119,13 +115,10 @@ class Notifications extends React.Component {
     } else {
       this.display = <div></div>
     }
-    const {
-      handleDisplayDrawer,
-    } = this.props;
     return (
     <React.Fragment>
       {!this.props.displayDrawer &&
-      <div onClick={handleDisplayDrawer} className={css(NotificationsStyle.menuItem)}>Your notifications</div>
+      <div onClick={this.props.handleDisplayDrawer} className={css(NotificationsStyle.menuItem)}>Your notifications</div>
       }
       {this.display}
   </React.Fragment>

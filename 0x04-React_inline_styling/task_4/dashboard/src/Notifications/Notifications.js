@@ -10,7 +10,7 @@ const NotificationsStyle = StyleSheet.create({
     border: 'thin dashed #E0354B',
     padding: '7px',
     float: 'right',
-    
+    backgroundColor: '#fff8f8',
     '@media (max-width: 900px)': {
       position: 'absolute',
       width: '98%',
@@ -22,9 +22,37 @@ const NotificationsStyle = StyleSheet.create({
   menuItem: {
     textAlign: 'right',
     marginRight: '16px',
+    ':hover': {
+      backgroundColor: 'red',
+      cursor: 'pointer',
+      animationName: [translateKeyframes, opacityKeyframes],
+      animationDuration: '3s, 1200ms',
+      animationIterationCount: 'infinite',
+    }
   },
 });
 
+
+const opacityKeyframes = {
+  'from': {
+    opacity: 0.5,
+  },
+  'to': {
+    opacity: 1,
+  }
+};
+
+const translateKeyframes = {
+  '0%': {
+    transform: 'translateX(0)',
+  },
+  '50%': {
+    transform: 'translateX(100px)',
+  },
+  '100%': {
+    transform: 'translateX(0)',
+  },
+};
 
 function clickLog() {
   console.log('Close button has been clicked');

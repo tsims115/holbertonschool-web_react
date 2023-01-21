@@ -5,6 +5,28 @@ import close_icon from '../assets/close-icon.png';
 import NotificationShape from './NotificationItemShape';
 import { StyleSheet, css } from 'aphrodite';
 
+
+const opacityKeyframes = {
+  'from': {
+    opacity: 0.5,
+  },
+  'to': {
+    opacity: 1,
+  }
+};
+
+const translateKeyframes = {
+  '0%': {
+    transform: 'translateY(0)',
+  },
+  '50%': {
+    transform: 'translateY(-2px)',
+  },
+  '100%': {
+    transform: 'translateY(2px)',
+  },
+};
+
 const NotificationsStyle = StyleSheet.create({
   notifications: {
     border: 'thin dashed #E0354B',
@@ -23,36 +45,15 @@ const NotificationsStyle = StyleSheet.create({
     textAlign: 'right',
     marginRight: '16px',
     ':hover': {
-      backgroundColor: 'red',
       cursor: 'pointer',
       animationName: [translateKeyframes, opacityKeyframes],
-      animationDuration: '3s, 1200ms',
-      animationIterationCount: 'infinite',
+      animationDuration: '0.8s, 3s',
+      animationIterationCount: '3',
     }
   },
 });
 
 
-const opacityKeyframes = {
-  'from': {
-    opacity: 0.5,
-  },
-  'to': {
-    opacity: 1,
-  }
-};
-
-const translateKeyframes = {
-  '0%': {
-    transform: 'translateX(0)',
-  },
-  '50%': {
-    transform: 'translateX(100px)',
-  },
-  '100%': {
-    transform: 'translateX(0)',
-  },
-};
 
 function clickLog() {
   console.log('Close button has been clicked');
@@ -111,7 +112,9 @@ class Notifications extends React.Component {
     }
     return (
     <React.Fragment>
+      {!this.props.displayDrawer &&
       <div className={css(NotificationsStyle.menuItem)}>Your notifications</div>
+      }
       {this.display}
   </React.Fragment>
   )}
@@ -123,7 +126,7 @@ Notifications.propTypes = {
 };
 
 Notifications.defaultProps = {
-  displayDrawer: true,
+  displayDrawer: false,
   listNotifications: []
 };
 

@@ -66,9 +66,7 @@ class App extends React.Component {
     this.setState({displayDrawer: true});
   }
   handleHideDrawer = () => {
-    this.setState(() => {
-      return {displayDrawer: false};
-    });
+    this.setState({displayDrawer: false});
   }
 
   componentDidMount() {

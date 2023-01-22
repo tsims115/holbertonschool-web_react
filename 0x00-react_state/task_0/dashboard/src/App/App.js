@@ -57,8 +57,8 @@ class App extends React.Component {
     } else {
       this.screen = <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>;
     }
-    this.markAsRead = this.handleDisplayDrawer.bind(this);
-    this.markAsRead = this.handleHideDrawer.bind(this);
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
     this.state = { displayDrawer: false };
   }
 

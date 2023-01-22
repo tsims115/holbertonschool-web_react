@@ -20,8 +20,13 @@ const login = StyleSheet.create({
   }
 })
 
-function Login() {
-  return (
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
     <React.Fragment>
       <form className={css(login.form)}>
         <p>Login to access the full dashboard</p>
@@ -36,7 +41,7 @@ function Login() {
         <button>Ok</button>
       </form>
     </React.Fragment>
-  );
+  );}
 }
 
 export default Login;

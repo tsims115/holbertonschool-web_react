@@ -59,7 +59,7 @@ class App extends React.Component {
     }
     this.markAsRead = this.handleDisplayDrawer.bind(this);
     this.markAsRead = this.handleHideDrawer.bind(this);
-    this.state = { displayDrawer: false };
+    this.setState({displayDrawer: false });
   }
 
   handleDisplayDrawer = () => {

@@ -1,7 +1,5 @@
+import { Map } from 'immutable';
 export default function accessImmutableObject(object, array) {
-  let value = object;
-  for (let i = 0; i < array.length; i += 1) {
-    value = value[array[i]];
-  }
-  return value;
+  const mapItem = Map(object);
+  return mapItem.getIn(array);
 }

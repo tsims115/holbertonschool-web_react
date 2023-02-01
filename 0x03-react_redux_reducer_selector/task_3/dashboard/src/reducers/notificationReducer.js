@@ -6,8 +6,6 @@ const initialState = {
 };
 
 export function notificationReducer(state = initialState, action) {
-  if (action.type === notificationActionTypes.SET_TYPE_FILTER) {
-  }
   switch (action.type) {
     case notificationActionTypes.FETCH_NOTIFICATIONS_SUCCESS: {
       action.data.forEach(element => {

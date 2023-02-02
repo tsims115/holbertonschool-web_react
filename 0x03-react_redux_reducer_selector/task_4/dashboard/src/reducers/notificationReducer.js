@@ -18,7 +18,7 @@ export function notificationReducer(state = Map(initialState), action) {
       action.data.forEach(element => {
         newState.notifications.push({...element, isRead: false});
       });
-      return state.merge(notificationsNormalizer);
+      return state.merge(notificationsNormalizer(newState));
     }
     case notificationActionTypes.MARK_AS_READ: {
       return {

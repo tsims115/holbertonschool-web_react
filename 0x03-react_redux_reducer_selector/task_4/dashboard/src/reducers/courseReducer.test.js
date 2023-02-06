@@ -1,8 +1,10 @@
 import { courseReducer } from "./courseReducer";
 import { SELECT_COURSE, UNSELECT_COURSE } from '../actions/courseActionTypes';
 import { fetchCourseSuccess } from '../actions/courseActionCreators';
+import { Map, fromJS } from "immutable";
+import { coursesNormalizer } from "../schema/courses";
 
-const initialState = [];
+const initialState = Map([]);
 
 const courses = [
   { id: 1, name: "ES6", credit: 60, isSelected: false },
@@ -16,16 +18,16 @@ describe("courseReducer", () => {
   });
 
   it('FETCH_COURSE_SUCCESS action works correctly', () => {
-    expect(courseReducer(initialState, fetchCourseSuccess())).toEqual(courses);
+    expect(courseReducer(initialState, fetchCourseSuccess()).toJS()).toEqual(coursesNormalizer(courses));
   });
   it('SELECT_COURSE action works correctly', () => {
     courses[1].isSelected = true;
-    expect(courseReducer(courses, {type: SELECT_COURSE, index: 2})).toEqual(courses);
+    expect(courseReducer(fromJS(coursesNormalizer(courses)), {type: SELECT_COURSE, index: 2}).toJS()).toEqual(coursesNormalizer(courses));
   });
   it('UNSELECT_COURSE action works correctly', () => {
     courses[1].isSelected = true;
-    const expected = courseReducer(courses, {type: UNSELECT_COURSE, index: 2})
+    const expected = courseReducer(fromJS(coursesNormalizer(courses)), {type: UNSELECT_COURSE, index: 2});
     courses[1].isSelected = false;
-    expect(expected).toEqual(courses);
+    expect(expected.toJS()).toEqual(coursesNormalizer(courses));
   });
 });

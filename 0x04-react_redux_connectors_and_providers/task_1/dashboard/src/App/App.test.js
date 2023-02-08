@@ -96,7 +96,8 @@ describe('App Redux', () => {
     StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
   });
   it('mapStateToProps returns correct object', () => {
-    let state = fromJS({
+    let state = {};
+    state.uiReducer = fromJS({
       isUserLoggedIn: true
     });
     let expected = { isLoggedIn: true };
